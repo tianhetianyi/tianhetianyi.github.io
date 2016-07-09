@@ -279,14 +279,47 @@ $(function ($) {
       $('.launch_modal').trigger("click");
 
 
-$.getJSON("http://127.0.0.1:9000/webFeedback?callback=?",data,function(json){
+
+
+/**$.getJSON("http://127.0.0.1:9000/webFeedback?callback=?",data,function(json){
             var msg = '';
             if(json){
                alert(josn);
             }else{
                msg = "服务器忙，请稍候再试！";
             }
-        });
+        });这种方式可以返回**/
+
+function jsoncallback(json){
+  console.log(json);
+  alert(json);
+}
+
+
+$.ajax(
+    {
+        type:'get',
+        url : 'http://studyfordream.com:9000/webFeedback?' + $("#contactForm").serialize(),
+        dataType : 'jsonp',
+        jsonp:"jsoncallback",
+        success  : function(data) {
+            alert("用户名："+ data.code +" 密码："+ data.msg);
+
+                          $('#contactForm').each (function(){
+                              this.reset();
+                          });
+                          $('.md-content').show();
+        },
+        error : function(data) {
+            alert(data + ";;;code=" + data.code + ";;msg=" + data.msg);
+                        $('.md-content').show();
+                        $('.md-content h3').html('出错啦 !');
+                        $('.md-content p').html('请再次尝试。');
+        }
+    }
+);
+
+
 
 
       //$.ajax({

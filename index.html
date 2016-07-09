@@ -1203,20 +1203,15 @@
                   </div>
                 </article>
               </div>
-              <!--only this url format works-->
-              <form id="contactForm" name="myform" action="http://studyfordream.com:9000/webFeedback"
+              <form id="contactForm" name="myform"
                     enctype="multipart/form-data" method="POST">
-                <!--<input type="hidden" name="receiver" id="receiver" value="@icloud.com">-->
-                <!--<input type="hidden" id="subject" name="subject" value="">-->
-                <!--<input type="text" name="website_url" id="website_url" class="contact_web_url "-->
-                       <!--value="">-->
                 <div class="row add-top-small">
                   <article class="col-md-4">
-                    <input type="text" placeholder="姓名" id="name" name="name" size="100">
+                    <input type="text" placeholder="姓名" id="name" name="name" size="20">
                     <input type="text" placeholder="邮箱" name="email" id="email" size="30">
                   </article>
                   <article class="col-md-6">
-                    <textarea placeholder="请输入信息" name="message" cols="40" rows="3" id="msg"></textarea>
+                    <textarea placeholder="请输入信息(限50个字符)" name="message" cols="40" rows="3" id="msg"></textarea>
                   </article>
                   <article class="col-md-2">
                     <button class="btn btn-rounded" id="submit" name="submit" type="submit">

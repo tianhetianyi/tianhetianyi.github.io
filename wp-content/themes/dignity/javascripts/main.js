@@ -278,26 +278,37 @@ $(function ($) {
       $('.md-content').hide();
       $('.launch_modal').trigger("click");
 
-      $.ajax({
-        type: $("#contactForm").attr('method'),
-        url: $("#contactForm").attr('action'),
-        data: $("#contactForm").serialize(),
-        success: function(data) {
-          if(data == 'success')
-          {
-              $('#contactForm').each (function(){
-                  this.reset();
-              });
-              $('.md-content').show();
-          }
-          else
-          {
-            $('.md-content').show();
-            $('.md-content h3').html('Something went wrong!');
-            $('.md-content p').html('Please try again.');
-          }
-        }
-      });
+
+$.getJSON("http://127.0.0.1:9000/webFeedback?callback=?",data,function(json){
+            var msg = '';
+            if(json){
+               alert(josn);
+            }else{
+               msg = "服务器忙，请稍候再试！";
+            }
+        });
+
+
+      //$.ajax({
+      //  type: $("#contactForm").attr('method'),
+      //  url: $("#contactForm").attr('action'),
+      //  data: $("#contactForm").serialize(),
+      //  success: function(data) {
+      //    if(data == 'success')
+      //    {
+      //        $('#contactForm').each (function(){
+      //            this.reset();
+      //        });
+      //        $('.md-content').show();
+      //    }
+      //    else
+      //    {
+      //      $('.md-content').show();
+      //      $('.md-content h3').html('出错啦 !');
+      //      $('.md-content p').html('请再次尝试。');
+      //    }
+      //  }
+      //});
       return false;
   });
 
